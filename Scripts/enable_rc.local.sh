@@ -25,18 +25,18 @@ do_start() {
         fi
 }
 
-case "$1" in
+case "\$1" in
     start)
         do_start
         ;;
     restart|reload|force-reload)
-        echo "Error: argument '$1' not supported" >&2
+        echo "Error: argument '\$1' not supported" >&2
         exit 3
         ;;
     stop)
         ;;
     *)
-        echo "Usage: $0 start|stop" >&2
+        echo "Usage: \$0 start|stop" >&2
         exit 3
         ;;
 esac
@@ -60,7 +60,7 @@ exit 0
 EOF
 
 # Setup init levels
-for i in 2 3 4 5; do ln -s ../init.d/rc.local  /etc/rc.d/rc$i.d/S99rc.local ; done
+for i in 2 3 4 5; do ln -s ../init.d/rc.local  /etc/rc.d/rc\$i.d/S99rc.local ; done
 #
 echo "Done"
 echo "For enable the execution of rc.local file, dont forget to do: chmod +x /etc/rc.local"
